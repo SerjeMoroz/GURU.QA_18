@@ -1,11 +1,23 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
 !**/src/main/**
 !**/src/test/**
+
+### Intellij IDEA ###
 .idea
+.iws
+.iml
+.ipr
+
+### Gradle ###
 .gradle
-*.iws
-*.iml
-*.xml
-*.ipr
-build/
-HELP.md
-*.log
+
+### Logs ###
+.log
