@@ -22,4 +22,7 @@ tasks.withType(JavaCompile).configureEach {
 
 test {
     useJUnitPlatform()
-}
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+    }
