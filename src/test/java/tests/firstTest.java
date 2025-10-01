@@ -26,7 +26,7 @@ public class firstTest extends BaseTest {
         $(".react-datepicker__day--016:not(react-datepicker__day--weekend)").click();
         $("label[for='hobbies-checkbox-3']").click();
         $("#subjectsInput").setValue("English").pressEnter();
-//        $("#uploadPicture").uploadFile(new File("BlueBird.jpg"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/BlueBird.jpg"));
         $("#currentAddress").setValue("Пушкина колотушкина 54");
         $("#state").click();
         $("#react-select-3-option-0").click();
