@@ -8,15 +8,15 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class firstTest extends BaseTest {
 
     @Test
     void firsTestOpen() {
         open("/automation-practice-form");
-
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('#footer').remove()");
         $("#firstName").setValue("Serje");
         $("#lastName").setValue("Moroz");
         $("#userEmail").setValue("SerjeMoroz@gmail.com");
@@ -30,7 +30,7 @@ public class firstTest extends BaseTest {
         $("#subjectsInput").setValue("English").pressEnter();
         $("#uploadPicture").uploadFile(new File("src/test/resources/BlueBird.jpg"));
         $("#currentAddress").setValue("Пушкина колотушкина 54");
-        $("#state").click();
+        $("#state").scrollTo().click();
         $("#react-select-3-option-0").click();
         $("#city").click();
         $("#react-select-4-option-1").click();
