@@ -11,9 +11,7 @@ dependencies {
     testImplementation (
             'com.codeborne:selenide:7.11.1',
             'org.junit.jupiter:junit-jupiter:5.11.0',
-            "org.slf4j:slf4j-simple:2.0.17",
-            "org.seleniumhq.selenium:selenium-java:4.37.0"
-
+            "org.slf4j:slf4j-simple:2.0.17"
     )
 }
 
@@ -24,6 +22,6 @@ tasks.withType(JavaCompile).configureEach {
 test {
     useJUnitPlatform()
     testLogging {
-        events "PASSED", "FAILED", "SKIPPED"
+        events "STARTED", "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
     }
     }
