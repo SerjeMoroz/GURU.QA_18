@@ -6,8 +6,7 @@ import org.openqa.selenium.By;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class firstTest extends BaseTest {
@@ -35,7 +34,7 @@ public class firstTest extends BaseTest {
         $("#city").click();
         $("#react-select-4-option-1").click();
         $("#submit").click();
-        $(".modal-content").shouldBe(visible);
+        $(".modal-content").shouldBe(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(By.xpath("//td[normalize-space()='Student Name']/following-sibling::td[normalize-space()='Serje Moroz']"));
         $(By.xpath("//td[normalize-space()='Student Email']/following-sibling::td[normalize-space()='SerjeMoroz@gmail.com']"));
@@ -47,7 +46,5 @@ public class firstTest extends BaseTest {
         $(By.xpath("//td[normalize-space()='Picture']/following-sibling::td[normalize-space()='BlueBird.jpg']"));
         $(By.xpath("//td[normalize-space()='State and City']/following-sibling::td[normalize-space()='NCR Delhi']"));
         $("#closeLargeModal").click();
-
-
     }
 }
