@@ -1,21 +1,23 @@
 package tests;
 
-import examples.BaseTest;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import pages.RegistrationPage;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class firstTest extends BaseTest {
+public class PageObjectsTests {
 
     @Test
     void firsTestOpen() {
-        open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('#footer').remove()");
+
+        new RegistrationPage().openPage();
+
         $("#firstName").setValue("Serje");
         $("#lastName").setValue("Moroz");
         $("#userEmail").setValue("SerjeMoroz@gmail.com");
@@ -27,7 +29,7 @@ public class firstTest extends BaseTest {
         $(".react-datepicker__day--016:not(react-datepicker__day--weekend)").click();
         $("label[for='hobbies-checkbox-3']").click();
         $("#subjectsInput").setValue("English").pressEnter();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/BlueBird.jpg"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/img/BlueBird.jpg"));
         $("#currentAddress").setValue("Пушкина колотушкина 54");
         $("#state").scrollTo().click();
         $("#react-select-3-option-0").click();
