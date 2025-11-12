@@ -29,14 +29,11 @@ public class PageObjectsTests extends BaseTest {
                     .setEmail(userEmail)
                     .setGender("Other")
                     .setPhoneNumber(phoneNumber)
-                    .setBirthDate("16", "August", "2000");
+                    .setBirthDate("16", "August", "2000")
+                    .registrationResultModalAppears();
 
 //        registrationPage.openPage();
 
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("August");
-        $(".react-datepicker__year-select").selectOption("2000");
-        $(".react-datepicker__day--016:not(react-datepicker__day--weekend)").click();
         $("label[for='hobbies-checkbox-3']").click();
         $("#subjectsInput").setValue("English").pressEnter();
         $("#uploadPicture").uploadFile(new File("src/test/resources/img/BlueBird.jpg"));
@@ -46,8 +43,7 @@ public class PageObjectsTests extends BaseTest {
         $("#city").click();
         $("#react-select-4-option-1").click();
         $("#submit").click();
-        $(".modal-content").shouldBe(appear);
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+
         $(By.xpath("//td[normalize-space()='Student Name']/following-sibling::td[normalize-space()='Serje Moroz']"));
         $(By.xpath("//td[normalize-space()='Student Email']/following-sibling::td[normalize-space()='SerjeMoroz@gmail.com']"));
         $(By.xpath("//td[normalize-space()='Gender']/following-sibling::td[normalize-space()='Male']"));

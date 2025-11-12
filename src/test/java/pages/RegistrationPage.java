@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.Components;
+import pages.components.RegistrationResultModal;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -11,13 +12,15 @@ import static examples.Constants.TITLE_TEXT;
 public class RegistrationPage {
 
     Components components = new Components();
+    RegistrationResultModal registrationResultModal = new RegistrationResultModal();
 
     private SelenideElement practiceFormSelector = $(".practice-form-wrapper"),
                             firstNameInput = $("#firstName"),
                             lastNameInput = $("#lastName"),
                             emailInput = $("#userEmail"),
                             genderButton = $("#genterWrapper"),
-                            phoneNumber = $("#userNumber");
+                            phoneNumber = $("#userNumber"),
+                            dateOfBirthInput = $("#dateOfBirthInput");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -53,8 +56,14 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setBirthDate(String day, String month, String year) {
-        $("#dateOfBirthInput").click();
+        dateOfBirthInput.click();
         components.setDate(day, month, year);
         return this;
     }
+    public RegistrationPage registrationResultModalAppears() {
+       registrationResultModal.verifyModalAppears();
+        return this;
+    }
+
+
 }
