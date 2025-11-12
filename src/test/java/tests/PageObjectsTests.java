@@ -1,5 +1,6 @@
 package tests;
 
+import examples.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import pages.RegistrationPage;
@@ -10,7 +11,7 @@ import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
-public class PageObjectsTests {
+public class PageObjectsTests extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
@@ -27,7 +28,8 @@ public class PageObjectsTests {
                     .setLastName(lastName)
                     .setEmail(userEmail)
                     .setGender("Other")
-                    .setPhoneNumber(phoneNumber);
+                    .setPhoneNumber(phoneNumber)
+                    .setBirthDate("16", "August", "2000");
 
 //        registrationPage.openPage();
 

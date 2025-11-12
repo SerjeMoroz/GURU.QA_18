@@ -1,7 +1,7 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import pages.components.Components;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -10,6 +10,7 @@ import static examples.Constants.TITLE_TEXT;
 
 public class RegistrationPage {
 
+    Components components = new Components();
 
     private SelenideElement practiceFormSelector = $(".practice-form-wrapper"),
                             firstNameInput = $("#firstName"),
@@ -48,6 +49,12 @@ public class RegistrationPage {
 
     public RegistrationPage setPhoneNumber(String value) {
         phoneNumber.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setBirthDate(String day, String month, String year) {
+        $("#dateOfBirthInput").click();
+        components.setDate(day, month, year);
         return this;
     }
 }
