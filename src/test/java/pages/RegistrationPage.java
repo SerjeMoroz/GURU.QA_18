@@ -4,6 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.Components;
 import pages.components.RegistrationResultModal;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -20,7 +22,13 @@ public class RegistrationPage {
                             emailInput = $("#userEmail"),
                             genderButton = $("#genterWrapper"),
                             phoneNumber = $("#userNumber"),
-                            dateOfBirthInput = $("#dateOfBirthInput");
+                            dateOfBirthInput = $("#dateOfBirthInput"),
+                            hobbieCheckBox = $("label[for='hobbies-checkbox-3']"),
+                            subjectInput = $("#subjectsInput"),
+                            addressInput = $("#currentAddress"),
+                            stateModal = $("#state"),
+                            city = $("#city"),
+                            submitButton = $("#submit");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -62,8 +70,45 @@ public class RegistrationPage {
     }
     public RegistrationPage registrationResultModalAppears() {
        registrationResultModal.verifyModalAppears();
+       return this;
+    }
+
+    public RegistrationPage verifyModalWindowResult(String key, String value) {
+        registrationResultModal.verifyModalResult(key, value);
         return this;
     }
 
+    public RegistrationPage clickHobbieCCheckBox() {
+        hobbieCheckBox.click();
+        return this;
+    }
+
+    public RegistrationPage setSubject(String value) {
+        subjectInput.setValue(value).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage uploadPicture() {
+        $("#uploadPicture").uploadFile(new File("src/test/resources/img/BlueBird.jpg"));
+        return this;
+    }
+
+    public RegistrationPage setAddress(String value) {
+        addressInput.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setState() {
+        stateModal.scrollTo().click();
+        $("#react-select-3-option-0").click();
+        return this;
+    }
+
+    public RegistrationPage setCity() {
+        city.click();
+        $("#react-select-4-option-1").click();
+        submitButton.click();
+        return this;
+    }
 
 }
