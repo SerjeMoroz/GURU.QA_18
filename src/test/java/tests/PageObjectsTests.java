@@ -1,53 +1,48 @@
 package tests;
 
 import examples.BaseTest;
+import examples.Faker;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import pages.RegistrationPage;
 import pages.components.RegistrationResultModal;
+
+import static examples.Faker.*;
 
 
 public class PageObjectsTests extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationResultModal registrationResultModal = new RegistrationResultModal();
+    Faker faker = new Faker();
 
     @Test
     void successfulRegistrationTest() {
 
-        String userName = "Serje";
-        String lastName = "Moroz";
-        String userEmail = "SerjeMoroz@gmail.com";
-        String phoneNumber = "0123456789";
-        String subject = "English";
-        String address = "Пушкина колотушкина 54";
-
         registrationPage.openPage()
-                    .setFirstName(userName)
-                    .setLastName(lastName)
-                    .setEmail(userEmail)
-                    .setGender("Other")
-                    .setPhoneNumber(phoneNumber)
-                    .setBirthDate("16", "August", "2000")
+                    .setFirstName(firstName())
+                    .setLastName(lastName())
+                    .setEmail(userEmail())
+                    .setGender(userGender())
+                    .setPhoneNumber(phoneNumber())
+                    .setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth())
                     .clickHobbieCCheckBox()
-                    .setSubject(subject)
+                    .setSubject(userSubject())
                     .uploadPicture()
-                    .setAddress(address)
-                    .setState()
-                    .setCity();
-
-
+                    .setAddress(userAddress())
+                    .setState(userState())
+                    .setCity(userCity());
 
         registrationPage.registrationResultModalAppears()
-                            .verifyModalWindowResult("Student name", userName + lastName)
-                            .verifyModalWindowResult("Student Email", userEmail)
+                            .verifyModalWindowResult("Student name", firstName() + lastName())
+                            .verifyModalWindowResult("Student Email", userEmail())
                             .verifyModalWindowResult("Gender", "Male")
-                            .verifyModalWindowResult("Mobile",  phoneNumber)
-                            .verifyModalWindowResult("Date of birth", "17 August,2000")
-                            .verifyModalWindowResult("Subjects", subject)
-                            .verifyModalWindowResult("Hobbies", "Music")
+                            .verifyModalWindowResult("Mobile",  phoneNumber())
+                            .verifyModalWindowResult("Date of birth", dayOfBirth() + monthOfBirth() + yearOfBirth())
+                            .verifyModalWindowResult("Subjects", userSubject())
+                            .verifyModalWindowResult("Hobbies", userHobbie())
                             .verifyModalWindowResult("Picture", "BlueBird.jpg")
-                            .verifyModalWindowResult("State and City", "NCR Delhi");
+                            .verifyModalWindowResult("State and City", userState() + userCity());
         registrationResultModal.closeModalWindow();
 
 //        $(By.xpath("//td[normalize-space()='Student Name']/following-sibling::td[normalize-space()='Serje Moroz']"));

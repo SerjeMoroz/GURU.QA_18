@@ -98,13 +98,13 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setState() {
+    public RegistrationPage setState(String value) {
         stateModal.scrollTo().click();
         $("#react-select-3-option-0").click();
         return this;
     }
 
-    public RegistrationPage setCity() {
+    public RegistrationPage setCity(String value) {
         city.click();
         $("#react-select-4-option-1").click();
         submitButton.click();
