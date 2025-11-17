@@ -16,8 +16,14 @@
 .iml
 .ipr
 
+build/
+
+
 ### Gradle ###
 .gradle
 
 ### Logs ###
 .log
+
+.workspace.xml
+
