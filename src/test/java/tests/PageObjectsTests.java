@@ -26,7 +26,7 @@ public class PageObjectsTests extends BaseTest {
                     .setGender(userGender())
                     .setPhoneNumber(phoneNumber())
                     .setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth())
-                    .clickHobbieCCheckBox()
+                    .clickHobbieCheckBox()
                     .setSubject(userSubject())
                     .uploadPicture()
                     .setAddress(userAddress())

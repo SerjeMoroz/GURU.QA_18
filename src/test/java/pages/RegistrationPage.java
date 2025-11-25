@@ -78,7 +78,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage clickHobbieCCheckBox() {
+    public RegistrationPage clickHobbieCheckBox() {
         hobbieCheckBox.click();
         return this;
     }
