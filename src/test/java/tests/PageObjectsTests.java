@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
 import examples.BaseTest;
 import examples.Faker;
 import org.junit.jupiter.api.Test;
@@ -16,33 +17,29 @@ public class PageObjectsTests extends BaseTest {
     RegistrationResultModal registrationResultModal = new RegistrationResultModal();
     Faker faker = new Faker();
 
+
     @Test
     void successfulRegistrationTest() {
 
-        registrationPage.openPage()
-                    .setFirstName(firstName())
-                    .setLastName(lastName())
-                    .setEmail(userEmail())
-                    .setGender(userGender())
-                    .setPhoneNumber(phoneNumber())
-                    .setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth())
-                    .clickHobbieCCheckBox()
-                    .setSubject(userSubject())
-                    .uploadPicture()
-                    .setAddress(userAddress())
-                    .setState(userState())
-                    .setCity(userCity());
+        registrationPage.openPage();
+        registrationPage.setUserInformation(firstName(), lastName(), userEmail(), phoneNumber());
+        registrationPage.setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth());
+        registrationPage.setGenderHobbie(userGender(), userHobbie());
+        registrationPage.setSubjectAndUploadPicture(userSubject());
+        registrationPage.setAddress(userAddress(), userState(), userCity());
+        Selenide.sleep(3000);
 
-        registrationPage.registrationResultModalAppears()
-                            .verifyModalWindowResult("Student name", firstName() + lastName())
-                            .verifyModalWindowResult("Student Email", userEmail())
-                            .verifyModalWindowResult("Gender", "Male")
-                            .verifyModalWindowResult("Mobile",  phoneNumber())
-                            .verifyModalWindowResult("Date of birth", dayOfBirth() + monthOfBirth() + yearOfBirth())
-                            .verifyModalWindowResult("Subjects", userSubject())
-                            .verifyModalWindowResult("Hobbies", userHobbie())
-                            .verifyModalWindowResult("Picture", "BlueBird.jpg")
-                            .verifyModalWindowResult("State and City", userState() + userCity());
+        registrationPage.registrationResultModalAppears();
+        registrationPage.verifyModalWindowResult("Student name", firstName() + lastName());
+        registrationPage.verifyModalWindowResult("Student Email", userEmail());
+        registrationPage.verifyModalWindowResult("Gender", userGender());
+        registrationPage.verifyModalWindowResult("Mobile",  phoneNumber());
+        registrationPage.verifyModalWindowResult("Date of birth", dayOfBirth() + monthOfBirth() + yearOfBirth());
+        registrationPage.verifyModalWindowResult("Subjects", userSubject());
+        registrationPage.verifyModalWindowResult("Hobbies", userHobbie());
+        registrationPage.verifyModalWindowResult("Picture", "BlueBird.jpg");
+        registrationPage.verifyModalWindowResult("State and City", userState() + userCity());
+        Selenide.sleep(3000);
         registrationResultModal.closeModalWindow();
     }
 

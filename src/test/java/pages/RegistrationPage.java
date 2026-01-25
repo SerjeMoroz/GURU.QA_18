@@ -28,87 +28,53 @@ public class RegistrationPage {
                             addressInput = $("#currentAddress"),
                             stateModal = $("#state"),
                             city = $("#city"),
-                            submitButton = $("#submit");
+                            submitButton = $("#submit"),
+                            uploadPicture = $("#uploadPicture");
 
-    public RegistrationPage openPage() {
+    public void openPage() {
         open("/automation-practice-form");
         practiceFormSelector.shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('#footer').remove()");
-        return this;
     }
 
-    public RegistrationPage setFirstName(String value) {
-        firstNameInput.setValue(value);
-        return this;
+    public void setUserInformation(String firstName, String lastName, String email, String phone) {
+        firstNameInput.setValue(firstName);
+        lastNameInput.setValue(lastName);
+        emailInput.setValue(email);
+        phoneNumber.setValue(phone);
     }
 
-    public RegistrationPage setLastName(String value) {
-        lastNameInput.setValue(value);
-        return this;
-    }
-
-    public RegistrationPage setEmail(String value) {
-        emailInput.setValue(value);
-        return this;
-    }
-
-    public RegistrationPage setGender(String value) {
-        genderButton.$(byText(value)).click();
-        return this;
-    }
-
-    public RegistrationPage setPhoneNumber(String value) {
-        phoneNumber.setValue(value);
-        return this;
-    }
-
-    public RegistrationPage setBirthDate(String day, String month, String year) {
+    public void setBirthDate(String day, String month, String year) {
         dateOfBirthInput.click();
         components.setDate(day, month, year);
-        return this;
-    }
-    public RegistrationPage registrationResultModalAppears() {
-       registrationResultModal.verifyModalAppears();
-       return this;
     }
 
-    public RegistrationPage verifyModalWindowResult(String key, String value) {
-        registrationResultModal.verifyModalResult(key, value);
-        return this;
-    }
-
-    public RegistrationPage clickHobbieCCheckBox() {
+    public void setGenderHobbie(String gender, String hobbie) {
+        genderButton.$(byText(gender)).click();
         hobbieCheckBox.click();
-        return this;
     }
 
-    public RegistrationPage setSubject(String value) {
+    public void setSubjectAndUploadPicture(String value) {
         subjectInput.setValue(value).pressEnter();
-        return this;
+        uploadPicture.uploadFile(new File("src/test/resources/img/BlueBird.jpg"));
     }
 
-    public RegistrationPage uploadPicture() {
-        $("#uploadPicture").uploadFile(new File("src/test/resources/img/BlueBird.jpg"));
-        return this;
-    }
-
-    public RegistrationPage setAddress(String value) {
-        addressInput.setValue(value);
-        return this;
-    }
-
-    public RegistrationPage setState(String value) {
+    public void setAddress(String address, String state, String userCity) {
+        addressInput.setValue(address);
         stateModal.scrollTo().click();
         $("#react-select-3-option-0").click();
-        return this;
-    }
-
-    public RegistrationPage setCity(String value) {
         city.click();
         $("#react-select-4-option-1").click();
         submitButton.click();
-        return this;
+    }
+
+    public void registrationResultModalAppears() {
+        registrationResultModal.verifyModalAppears();
+    }
+
+    public void verifyModalWindowResult(String key, String value) {
+        registrationResultModal.verifyModalResult(key, value);
     }
 
 }
