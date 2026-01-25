@@ -27,7 +27,6 @@ public class PageObjectsTests extends BaseTest {
         registrationPage.setGenderHobbie(userGender(), userHobbie());
         registrationPage.setSubjectAndUploadPicture(userSubject());
         registrationPage.setAddress(userAddress(), userState(), userCity());
-        Selenide.sleep(3000);
 
         registrationPage.registrationResultModalAppears();
         registrationPage.verifyModalWindowResult("Student name", firstName() + lastName());
