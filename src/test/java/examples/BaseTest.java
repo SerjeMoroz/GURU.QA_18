@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static examples.Faker.*;
 
 public class BaseTest {
 

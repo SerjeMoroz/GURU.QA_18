@@ -8,13 +8,15 @@ repositories {
 }
 
 dependencies {
-    testImplementation (
-            'com.codeborne:selenide:7.12.2',
-            'org.junit.jupiter:junit-jupiter:5.11.0',
-            "org.slf4j:slf4j-simple:2.0.17",
-            "net.datafaker:datafaker:2.4.0"
-    )
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0'
+    testImplementation 'com.codeborne:selenide:7.12.2'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.17'
+    testImplementation 'net.datafaker:datafaker:2.4.0'
+
+    testRuntimeOnly  'org.junit.jupiter:junit-jupiter-engine:5.11.0'
+    testRuntimeOnly  'org.junit.platform:junit-platform-launcher'
 }
+
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding='UTF-8'
@@ -25,4 +27,4 @@ test {
     testLogging {
         events "STARTED", "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
     }
-    }
+}

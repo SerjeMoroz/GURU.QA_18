@@ -15,18 +15,16 @@ public class PageObjectsTests extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationResultModal registrationResultModal = new RegistrationResultModal();
-    Faker faker = new Faker();
-
 
     @Test
     void successfulRegistrationTest() {
-
         registrationPage.openPage();
         registrationPage.setUserInformation(firstName(), lastName(), userEmail(), phoneNumber());
         registrationPage.setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth());
         registrationPage.setGenderHobbie(userGender(), userHobbie());
         registrationPage.setSubjectAndUploadPicture(userSubject());
         registrationPage.setAddress(userAddress(), userState(), userCity());
+        Selenide.sleep(3000);
 
         registrationPage.registrationResultModalAppears();
         registrationPage.verifyModalWindowResult("Student name", firstName() + lastName());
