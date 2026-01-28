@@ -32,7 +32,6 @@ public class RegistrationPage {
                             uploadPicture = $("#uploadPicture");
 
     public void openPage() {
-        open("/automation-practice-form");
         practiceFormSelector.shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('#footer').remove()");

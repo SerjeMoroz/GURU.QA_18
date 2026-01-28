@@ -55,7 +55,7 @@ public class Faker {
     }
 
     public static String yearOfBirth() {
-        return String.valueOf(faker.number().numberBetween(1980, 2000));
+        return String.valueOf(faker.number().numberBetween(1990, 2000));
     }
 
     public static String userState() {

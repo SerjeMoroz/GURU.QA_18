@@ -4,6 +4,9 @@ import com.codeborne.selenide.Selenide;
 import examples.BaseTest;
 import examples.Faker;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.By;
 import pages.RegistrationPage;
 import pages.components.RegistrationResultModal;
@@ -16,15 +19,20 @@ public class PageObjectsTests extends BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationResultModal registrationResultModal = new RegistrationResultModal();
 
-    @Test
-    void successfulRegistrationTest() {
+    @CsvSource(value = {
+            "Male",
+            "Female",
+            "Other"
+    })
+    @ParameterizedTest(name = "указываем {0} для обозначения гендера")
+    void successfulRegistration(String testData) {
         registrationPage.openPage();
         registrationPage.setUserInformation(firstName(), lastName(), userEmail(), phoneNumber());
         registrationPage.setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth());
-        registrationPage.setGenderHobbie(userGender(), userHobbie());
+        registrationPage.setGenderHobbie(testData, userHobbie());
         registrationPage.setSubjectAndUploadPicture(userSubject());
         registrationPage.setAddress(userAddress(), userState(), userCity());
-        Selenide.sleep(3000);
+        Selenide.sleep(1000);
 
         registrationPage.registrationResultModalAppears();
         registrationPage.verifyModalWindowResult("Student name", firstName() + lastName());
@@ -36,7 +44,7 @@ public class PageObjectsTests extends BaseTest {
         registrationPage.verifyModalWindowResult("Hobbies", userHobbie());
         registrationPage.verifyModalWindowResult("Picture", "BlueBird.jpg");
         registrationPage.verifyModalWindowResult("State and City", userState() + userCity());
-        Selenide.sleep(3000);
+        Selenide.sleep(1000);
         registrationResultModal.closeModalWindow();
     }
 
