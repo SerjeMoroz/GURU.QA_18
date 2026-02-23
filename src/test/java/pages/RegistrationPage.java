@@ -23,7 +23,7 @@ public class RegistrationPage {
                             genderButton = $("#genterWrapper"),
                             phoneNumber = $("#userNumber"),
                             dateOfBirthInput = $("#dateOfBirthInput"),
-                            hobbieCheckBox = $("label[for='hobbies-checkbox-3']"),
+                            hobbieCheckBox = $("#hobbiesWrapper"),
                             subjectInput = $("#subjectsInput"),
                             addressInput = $("#currentAddress"),
                             stateModal = $("#state"),
@@ -31,10 +31,14 @@ public class RegistrationPage {
                             submitButton = $("#submit"),
                             uploadPicture = $("#uploadPicture");
 
+
+//    public void removeFooters() {
+//        executeJavaScript("$('#fixedban').remove()");
+//        executeJavaScript("$('#footer').remove()");
+//    }
+
     public void openPage() {
         practiceFormSelector.shouldHave(text(TITLE_TEXT));
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('#footer').remove()");
     }
 
     public void setUserInformation(String firstName, String lastName, String email, String phone) {
@@ -49,9 +53,9 @@ public class RegistrationPage {
         components.setDate(day, month, year);
     }
 
-    public void setGenderHobbie(String gender, String hobbie) {
+    public void setGenderAndHobbie(String gender, String hobbie) {
         genderButton.$(byText(gender)).click();
-        hobbieCheckBox.click();
+        hobbieCheckBox.$(byText(hobbie)).click();
     }
 
     public void setSubjectAndUploadPicture(String value) {
