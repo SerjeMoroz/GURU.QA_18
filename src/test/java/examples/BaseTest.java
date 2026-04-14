@@ -21,6 +21,8 @@ public class BaseTest {
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
         options.addArguments("--disable.cache");
+        options.addArguments("--ignore-certificate-errors");
+//        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
 
         Configuration.browser = "chrome";
         Configuration.browserCapabilities = options;

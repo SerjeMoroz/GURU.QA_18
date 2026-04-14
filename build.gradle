@@ -1,22 +1,37 @@
-import javax.swing.GroupLayout
-
 plugins {
     id 'java-library'
+    id 'io.qameta.allure' version '3.2.0'
 }
 
 version '1.0 SNAPSHOT'
 
+allure {
+    report {
+        version.set("2.32.0")
+    }
+    adapter { //отвечает за папку allure results
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.32.0")
+            }
+        }
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation (
-        'org.junit.jupiter:junit-jupiter:6.0.1',
-        'com.codeborne:selenide:7.10.1',
-        'org.slf4j:slf4j-simple:2.0.17',
-        'net.datafaker:datafaker:2.4.0'
+    testImplementation(
+     'org.junit.jupiter:junit-jupiter:5.14.2',
+     'com.codeborne:selenide:7.10.1',
+     'org.slf4j:slf4j-simple:2.0.17',
+     'net.datafaker:datafaker:2.4.0',
+     'com.codeborne:pdf-test:1.5.0',
+     'com.codeborne:xls-test:1.4.3',
+            'io.qameta.allure:allure-selenide:2.30.0'
     )
     testRuntimeOnly (
         'org.junit.platform:junit-platform-launcher'
