@@ -1,20 +1,13 @@
-package tests;
+package tests.demoqa;
 
-import com.codeborne.selenide.Selenide;
 import examples.BaseTest;
-import examples.Faker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.By;
 import pages.RegistrationPage;
 import pages.components.RegistrationResultModal;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static examples.Faker.*;
 
 
