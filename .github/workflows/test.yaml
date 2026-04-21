@@ -5,13 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     # что делаем
     steps:
-      - uses: actions/checkout@3
+      - uses: actions/checkout@4
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:  # ← был пропущен 'with'
+      - uses: actions/setup-java@v3
+        with:
           distribution: 'zulu'
           java-version: '24'
+      - uses: Xotabu4/sselenoid-github-action@v2
 
-      - name: Run tests
-        run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
+      - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
