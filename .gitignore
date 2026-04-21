@@ -1,7 +1,7 @@
 /.gradle/
 /.idea/
 /build/
-/gradle/
+#/gradle/
 
 ### Intellij IDEA ###
 .idea
