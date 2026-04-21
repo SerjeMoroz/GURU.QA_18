@@ -1,5 +1,5 @@
 name: Test
-on: [push]  # Triggered on every push to the repo
+on: workflow_dispatch  # Triggered on every push to the repo
 jobs:
   build:
     runs-on: ubuntu-latest
