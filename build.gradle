@@ -9,11 +9,11 @@ allure {
     report {
         version.set("2.32.0")
     }
-    adapter { //отвечает за папку allure results
-        aspectjWeaver.set(true)
+    adapter { //отвечает за появление папки allure results
+        aspectjWeaver.set(true) //Обработка аннотации @Step
         frameworks {
-            junit5 {
-                adapterVersion.set("2.32.0")
+            junit5 { //название фреймворка
+                adapterVersion.set("2.32.0") //версия интеграции фреймворка и Allure
             }
         }
     }
