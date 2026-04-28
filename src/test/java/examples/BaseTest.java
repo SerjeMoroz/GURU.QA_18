@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -23,8 +24,8 @@ public class BaseTest {
         options.addArguments("--disable.cache");
         options.addArguments("--ignore-certificate-errors");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
-
         Configuration.browser = "chrome";
+        Configuration.headless = true;
         Configuration.browserCapabilities = options;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
