@@ -29,7 +29,6 @@ public class BaseTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
         options.addArguments("--remote-debugging-port=9222");
-        Configuration.browserCapabilities = options;
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
         Configuration.headless = true;
