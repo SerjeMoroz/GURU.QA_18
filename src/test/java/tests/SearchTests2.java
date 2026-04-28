@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -13,6 +14,7 @@ import static io.qameta.allure.Allure.step;
 
 public class SearchTests2 {
 
+    @DisplayName("Тест на поиск в github слова Selenide")
     @Test
     void searchGitHubTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -26,7 +28,8 @@ public class SearchTests2 {
              $("#query-builder-test").setValue("Selenide").pressEnter();
          });
         step("Кликаем на первый в поиске результат", () -> {
-             $$(By.xpath("//div[@class='Box-sc-62in7e-0 flaXet']//div[@class='Box-sc-62in7e-0 lnrylK search-title']")).first().click();
+             $$(By.xpath("//div[@class='Search-module__columnLeftWrapper__rycTi']" +
+                     "//div[@class='search-title Header-module__title__QUX7e']")).first().click();
              $("#wiki-tab").click();
              $(By.xpath("//a[normalize-space()='Soft assertions']")).click();
          });
@@ -35,6 +38,7 @@ public class SearchTests2 {
          });
     }
 
+    @DisplayName("Поиск слова 'Solutions' в github")
     @Test
     void solutionsTestGithub() {
         SelenideLogger.addListener("allure", new AllureSelenide());
