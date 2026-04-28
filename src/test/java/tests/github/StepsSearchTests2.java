@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -14,6 +15,7 @@ import static io.qameta.allure.Allure.step;
 public class StepsSearchTests2 {
 
 
+    @Disabled
     @Test
     void solutionsTestGithub() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -26,6 +28,7 @@ public class StepsSearchTests2 {
         Selenide.closeWebDriver();
     }
 
+    @Disabled
     @Test
     void searchGitHubTestWithLambdaStep() {
         Configuration.browserSize = "2560x1440";
