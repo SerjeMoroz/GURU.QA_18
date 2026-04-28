@@ -19,20 +19,20 @@ public class BaseTest {
     @BeforeAll
     static void setupClass() {
         ChromeOptions options = new ChromeOptions();
+        Configuration.browserCapabilities = options;
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-search-engine-choice-screen");
-        options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
-        options.addArguments("--disable-cache");
+//        options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
+//        options.addArguments("--disable-cache");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--remote-debugging-port=9222");
+//        options.addArguments("--disable-gpu");
+//        options.addArguments("--remote-debugging-port=9222");
         options.addArguments("--window-size=1920,1080");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
-//        Configuration.headless = true;
-        Configuration.browserCapabilities = options;
+        Configuration.headless = true;
 //        Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
 //        Configuration.browserSize = "2560x1440";
