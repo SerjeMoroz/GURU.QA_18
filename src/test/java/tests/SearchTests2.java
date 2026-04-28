@@ -33,7 +33,7 @@ public class SearchTests2 {
              $("#wiki-tab").click();
              $(By.xpath("//a[normalize-space()='Soft assertions']")).click();
          });
-        step("СВерифицируем результат", () -> {
+        step("Верифицируем результат", () -> {
              $("#wiki-body").shouldHave(text("JUnit5 extension - com.codeborne.selenide.junit5.SoftAssertsExtension"));
          });
     }

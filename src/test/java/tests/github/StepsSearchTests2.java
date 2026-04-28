@@ -38,7 +38,8 @@ public class StepsSearchTests2 {
             $("#query-builder-test").setValue("Selenide").pressEnter();
         });
         step("Кликаем на первый в поиске результат", () -> {
-            $$(By.xpath("//div[@class='Box-sc-62in7e-0 flaXet']//div[@class='Box-sc-62in7e-0 lnrylK search-title']")).first().click();
+            $$(By.xpath("//div[@class='Search-module__columnLeftWrapper__rycTi']" +
+                    "//div[@class='search-title Header-module__title__QUX7e']")).first().click();
             $("#wiki-tab").click();
             $(By.xpath("//a[normalize-space()='Soft assertions']")).click();
         });
