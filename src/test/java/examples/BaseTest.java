@@ -30,18 +30,18 @@ public class BaseTest {
         options.addArguments("--remote-debugging-port=9222");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
-        Configuration.headless = true;
+//        Configuration.headless = true;
         Configuration.browserCapabilities = options;
 //        Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
         Configuration.browserSize = "2560x1440";
     }
 
-    @BeforeEach
-    void setUp() {
-//        open("/automation-practice-form");
-//        getWebDriver().manage().window().maximize();
-    }
+//    @BeforeEach
+//    void setUp() {
+////        open("/automation-practice-form");
+////        getWebDriver().manage().window().maximize();
+//    }
 
     @AfterEach
     void tearDown() {
