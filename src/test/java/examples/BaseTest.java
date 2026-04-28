@@ -27,12 +27,13 @@ public class BaseTest {
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless=new");
 //        options.addArguments("--disable-gpu");
 //        options.addArguments("--remote-debugging-port=9222");
         options.addArguments("--window-size=1920,1080");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
-        Configuration.headless = true;
+//        Configuration.headless = true;
 //        Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
 //        Configuration.browserSize = "2560x1440";

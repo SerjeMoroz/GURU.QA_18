@@ -18,7 +18,6 @@ public class SearchTests2 {
     @Test
     void searchGitHubTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        Configuration.browserSize = "2560x1440";
 
         step("Открываем главную страницу GitHub", () -> {
                     open("https://github.com");
