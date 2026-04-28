@@ -24,7 +24,6 @@ public class BaseTest {
         options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
         options.addArguments("--disable-cache");
         options.addArguments("--ignore-certificate-errors");
-        options.addArguments("--window-size=1920,1080");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
@@ -35,12 +34,13 @@ public class BaseTest {
         Configuration.browserCapabilities = options;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
+        Configuration.browserSize = "2560x1440";
     }
 
     @BeforeEach
     void setUp() {
         open("/automation-practice-form");
-        getWebDriver().manage().window().maximize();
+//        getWebDriver().manage().window().maximize();
     }
 
     @AfterEach
