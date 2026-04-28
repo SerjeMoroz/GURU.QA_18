@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -15,6 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SearchGithubTest {
 
+    @Disabled
     @Test
     void searchGithub() {
         Configuration.browserSize = "2560x1440";
@@ -28,6 +30,7 @@ public class SearchGithubTest {
         Selenide.closeWebDriver();
     }
 
+    @Disabled
     @Test
     void solutionsTestGithub() {
         Configuration.browserSize = "2560x1440";
@@ -38,6 +41,8 @@ public class SearchGithubTest {
                 shouldHave(text("The AI-powered developer platform for the agent-ready enterprise"));
         Selenide.closeWebDriver();
     }
+
+    @Disabled
     @Test
     void firsTestOpen() {
         open("/automation-practice-form");

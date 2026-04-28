@@ -19,7 +19,6 @@ public class StepsSearchTests2 {
     @Test
     void solutionsTestGithub() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        Configuration.browserSize = "2560x1440";
         open("https://github.com");
         $(By.xpath("//button[normalize-space()='Solutions']")).hover();
         $(By.linkText("Enterprises")).click();
@@ -31,7 +30,6 @@ public class StepsSearchTests2 {
     @Disabled
     @Test
     void searchGitHubTestWithLambdaStep() {
-        Configuration.browserSize = "2560x1440";
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем главную страницу GitHub", () -> {
             open("https://github.com");
