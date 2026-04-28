@@ -34,7 +34,7 @@ public class BaseTest {
     @BeforeEach
     void setUp() {
         open("/automation-practice-form");
-        getWebDriver().manage().window().maximize();
+//        getWebDriver().manage().window().maximize();
     }
 
     @AfterEach
