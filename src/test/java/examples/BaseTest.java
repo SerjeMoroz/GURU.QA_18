@@ -39,7 +39,7 @@ public class BaseTest {
 
     @BeforeEach
     void setUp() {
-        open("/automation-practice-form");
+//        open("/automation-practice-form");
 //        getWebDriver().manage().window().maximize();
     }
 
