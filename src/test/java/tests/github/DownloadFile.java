@@ -48,7 +48,7 @@ public class DownloadFile {
         Selenide.open("https://tus.io/demo.html");
         getWebDriver().manage().window().maximize();
         $("input[type='file']").uploadFromClasspath("img/BlueBird.jpg");
-        $(byXpath("//div[@class='_root_gq6c0_1']//p")).shouldHave(text("The upload is complete!"));
+        $(byXpath("//p[@class='_heading_gq6c0_21']")).shouldHave(text("The upload is complete!"));
         sleep(3000);
     }
 
