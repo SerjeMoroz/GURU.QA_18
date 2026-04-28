@@ -19,7 +19,6 @@ public class SearchGithubTest {
     @Disabled
     @Test
     void searchGithub() {
-        Configuration.browserSize = "2560x1440";
         open("https://github.com");
         $("span[class='flex-1']").click();
         $("#query-builder-test").setValue("Selenide").pressEnter();
@@ -33,7 +32,6 @@ public class SearchGithubTest {
     @Disabled
     @Test
     void solutionsTestGithub() {
-        Configuration.browserSize = "2560x1440";
         open("https://github.com");
         $(By.xpath("//button[normalize-space()='Solutions']")).hover();
         $(By.linkText("Enterprises")).click();
