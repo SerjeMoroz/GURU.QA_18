@@ -32,7 +32,7 @@ public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.headless = true;
         Configuration.browserCapabilities = options;
-        Configuration.baseUrl = "https://demoqa.com";
+//        Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
         Configuration.browserSize = "2560x1440";
     }
