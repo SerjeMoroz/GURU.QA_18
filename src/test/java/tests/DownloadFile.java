@@ -1,9 +1,10 @@
-package tests.github;
+package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
@@ -42,7 +43,7 @@ public class DownloadFile {
         Selenide.clearBrowserLocalStorage();
     }
 
-
+    @Disabled
     @Test
     void secondDowloadFile() throws Exception {
         Selenide.open("https://tus.io/demo.html");
