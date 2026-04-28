@@ -28,13 +28,14 @@ public class BaseTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
         options.addArguments("--remote-debugging-port=9222");
+        options.addArguments("--window-size=1920,1080");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
 //        Configuration.headless = true;
         Configuration.browserCapabilities = options;
 //        Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
-        Configuration.browserSize = "2560x1440";
+//        Configuration.browserSize = "2560x1440";
     }
 
 //    @BeforeEach
