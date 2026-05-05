@@ -15,7 +15,7 @@ import static io.qameta.allure.Allure.step;
 public class StepsSearchTests2 {
 
 
-    @Disabled
+
     @Test
     void solutionsTestGithub() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -27,7 +27,7 @@ public class StepsSearchTests2 {
         Selenide.closeWebDriver();
     }
 
-    @Disabled
+
     @Test
     void searchGitHubTestWithLambdaStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());

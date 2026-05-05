@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SearchGithubTest {
 
-    @Disabled
+
     @Test
     void searchGithub() {
         open("https://github.com");
@@ -29,7 +29,7 @@ public class SearchGithubTest {
         Selenide.closeWebDriver();
     }
 
-    @Disabled
+
     @Test
     void solutionsTestGithub() {
         open("https://github.com");
@@ -40,7 +40,7 @@ public class SearchGithubTest {
         Selenide.closeWebDriver();
     }
 
-    @Disabled
+
     @Test
     void firsTestOpen() {
         open("/automation-practice-form");
