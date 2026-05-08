@@ -3,6 +3,7 @@ package tests.github;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import examples.BaseTest;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class StepsSearchTests2 {
+public class StepsSearchTests2 extends BaseTest {
 
 
 

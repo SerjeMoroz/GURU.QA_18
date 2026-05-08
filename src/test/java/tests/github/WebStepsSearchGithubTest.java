@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import tests.github.GitHubStepsMethods;
 
 
-public class WebStepsSearchGithubTest {
+public class WebStepsSearchGithubTest extends GitHubStepsMethods {
 
     GitHubStepsMethods gitHubStepsMethods = new GitHubStepsMethods();
     GitHubStepsMethods steps = new GitHubStepsMethods();

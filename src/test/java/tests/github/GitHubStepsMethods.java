@@ -1,5 +1,6 @@
 package tests.github;
 
+import examples.BaseTest;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -7,7 +8,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class GitHubStepsMethods {
+public class GitHubStepsMethods extends BaseTest {
 
     @Step("Открываем главную страницу GitHub")
     public void openGitHub() {
