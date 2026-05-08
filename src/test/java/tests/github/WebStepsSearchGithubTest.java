@@ -18,7 +18,6 @@ public class WebStepsSearchGithubTest {
     @Story("Проверка github allure")
     @DisplayName("Проверка теста с шагами allure вынесенными в отдельный класс")
     public void searchGithubWithAnnotationsStep() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         steps.openGitHub();
         steps.enterTextAndPressEnterGithub();
         steps.clickFirstSearhResultGithub();

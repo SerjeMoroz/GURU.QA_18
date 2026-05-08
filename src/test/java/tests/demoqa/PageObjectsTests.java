@@ -9,6 +9,7 @@ import pages.RegistrationPage;
 import pages.components.RegistrationResultModal;
 
 import static examples.Faker.*;
+import static io.qameta.allure.Allure.step;
 
 
 public class PageObjectsTests extends BaseTest {
@@ -26,24 +27,27 @@ public class PageObjectsTests extends BaseTest {
     @CsvFileSource (resources = "/testdata/fileNameGender.csv")
     @ParameterizedTest(name = "гендер: {0} и хобби:{1}")
     void successfulRegistration(String testData, String hobby) {
-        registrationPage.openPage();
-        registrationPage.setUserInformation(firstName(), lastName(), userEmail(), phoneNumber());
-        registrationPage.setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth());
-        registrationPage.setGenderAndHobbie(testData, hobby);
-        registrationPage.setSubjectAndUploadPicture(userSubject());
-        registrationPage.setAddress(userAddress(), userState(), userCity());
-
-        registrationPage.registrationResultModalAppears();
-        registrationPage.verifyModalWindowResult("Student name", firstName() + lastName());
-        registrationPage.verifyModalWindowResult("Student Email", userEmail());
-        registrationPage.verifyModalWindowResult("Gender", testData);
-        registrationPage.verifyModalWindowResult("Mobile",  phoneNumber());
-        registrationPage.verifyModalWindowResult("Date of birth", dayOfBirth() + monthOfBirth() + yearOfBirth());
-        registrationPage.verifyModalWindowResult("Subjects", userSubject());
-        registrationPage.verifyModalWindowResult("Hobbies", hobby);
-        registrationPage.verifyModalWindowResult("Picture", "BlueBird.jpg");
-        registrationPage.verifyModalWindowResult("State and City", userState() + userCity());
-        registrationResultModal.closeModalWindow();
+        step("Заполняется форма", () -> {
+            registrationPage.openPage();
+            registrationPage.setUserInformation(firstName(), lastName(), userEmail(), phoneNumber());
+            registrationPage.setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth());
+            registrationPage.setGenderAndHobbie(testData, hobby);
+            registrationPage.setSubjectAndUploadPicture(userSubject());
+            registrationPage.setAddress(userAddress(), userState(), userCity());
+        });
+        step("Сверка результатов в модальном окне", () -> {
+            registrationPage.registrationResultModalAppears();
+            registrationPage.verifyModalWindowResult("Student name", firstName() + lastName());
+            registrationPage.verifyModalWindowResult("Student Email", userEmail());
+            registrationPage.verifyModalWindowResult("Gender", testData);
+            registrationPage.verifyModalWindowResult("Mobile",  phoneNumber());
+            registrationPage.verifyModalWindowResult("Date of birth", dayOfBirth() + monthOfBirth() + yearOfBirth());
+            registrationPage.verifyModalWindowResult("Subjects", userSubject());
+            registrationPage.verifyModalWindowResult("Hobbies", hobby);
+            registrationPage.verifyModalWindowResult("Picture", "BlueBird.jpg");
+            registrationPage.verifyModalWindowResult("State and City", userState() + userCity());
+            registrationResultModal.closeModalWindow();
+        });
     }
 
 }

@@ -18,7 +18,6 @@ public class StepsSearchTests2 {
 
     @Test
     void solutionsTestGithub() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://github.com");
         $(By.xpath("//button[normalize-space()='Solutions']")).hover();
         $(By.linkText("Enterprises")).click();
@@ -30,7 +29,6 @@ public class StepsSearchTests2 {
 
     @Test
     void searchGitHubTestWithLambdaStep() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем главную страницу GitHub", () -> {
             open("https://github.com");
         });
