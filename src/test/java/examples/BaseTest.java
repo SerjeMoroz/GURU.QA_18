@@ -37,21 +37,21 @@ public class BaseTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
+        options.addArguments("--headless=new");
 //        options.addArguments("--remote-debugging-port=9222");
         options.addArguments("--window-size=1920,1080");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
-//        Configuration.browserVersion = "128.0";
 //        Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
-//
-//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability("selenoid.options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", true
-//        ));
-//        Configuration.browserCapabilities = capabilities;
+
+        Configuration.browserCapabilities = options;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid.options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
     }
 
     @BeforeEach
