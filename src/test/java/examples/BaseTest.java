@@ -41,7 +41,7 @@ public class BaseTest {
         options.addArguments("--window-size=1920,1080");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
-        Configuration.browserVersion = "128.0";
+//        Configuration.browserVersion = "128.0";
 //        Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
 
