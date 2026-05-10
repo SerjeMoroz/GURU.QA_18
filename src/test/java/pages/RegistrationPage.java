@@ -72,8 +72,7 @@ public class RegistrationPage {
         stateModal.scrollTo().click();
         $("#react-select-3-option-0").click();
         city.click();
-//        $("#react-select-4-option-1").click();
-        $("#react-select-4-opti").click();
+        $("#react-select-4-option-1").click();
         submitButton.click();
     }
 
