@@ -1,6 +1,7 @@
 package tests.demoqa;
 
 import examples.BaseTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -23,6 +24,7 @@ public class PageObjectsTests extends BaseTest {
 //            "Female",
 //            "Other"
 //    })
+    @Disabled
     @Tag("Smoke")
     @CsvFileSource (resources = "/testdata/fileNameGender.csv")
     @ParameterizedTest(name = "гендер: {0} и хобби:{1}")

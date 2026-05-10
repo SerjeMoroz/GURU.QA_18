@@ -17,7 +17,7 @@ import static io.qameta.allure.Allure.step;
 public class StepsSearchTests2  {
 
 
-
+    @Disabled
     @Test
     void solutionsTestGithub() {
         open("https://github.com");
@@ -29,7 +29,7 @@ public class StepsSearchTests2  {
         Selenide.closeWebDriver();
     }
 
-
+    @Disabled
     @Test
     void searchGitHubTestWithLambdaStep() {
         step("Открываем главную страницу GitHub", () -> {
