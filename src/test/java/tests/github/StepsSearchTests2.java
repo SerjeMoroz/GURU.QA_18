@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 
 public class StepsSearchTests2  {
@@ -20,6 +21,7 @@ public class StepsSearchTests2  {
     @Test
     void solutionsTestGithub() {
         open("https://github.com");
+        getWebDriver().manage().window().maximize();
         $(By.xpath("//button[normalize-space()='Solutions']")).hover();
         $(By.linkText("Enterprises")).click();
         $("#hero-section-brand-heading").shouldBe(visible).
@@ -32,6 +34,7 @@ public class StepsSearchTests2  {
     void searchGitHubTestWithLambdaStep() {
         step("Открываем главную страницу GitHub", () -> {
             open("https://github.com");
+            getWebDriver().manage().window().maximize();
         });
         step("Вводим текст поиска и нажимаем Enter", () -> {
             $("span[class='flex-1']").click();
