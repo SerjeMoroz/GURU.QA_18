@@ -27,7 +27,6 @@ public class DownloadFile {
     @Test
     void firstDowloadFile() throws Exception {
         open("https://github.com/qa-guru/niffler/blob/master/README.md");
-        getWebDriver().manage().window().maximize();
 //        File download = $("button[data-testid='download-raw-button']").download();
         Configuration.fileDownload = FileDownloadMode.FOLDER;
         File download = $("button[data-testid='download-raw-button']").download();
@@ -44,7 +43,6 @@ public class DownloadFile {
     @Test
     void secondDowloadFile() throws Exception {
         open("https://tus.io/demo.html");
-        getWebDriver().manage().window().maximize();
         $("input[type='file']").uploadFromClasspath("img/BlueBird.jpg");
         $(byXpath("//p[@class='_heading_gq6c0_21']")).shouldHave(text("The upload is complete!"));
     }

@@ -1,12 +1,14 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import examples.BaseTest;
 import pages.components.Components;
 import pages.components.RegistrationResultModal;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static examples.Constants.TITLE_TEXT;
@@ -15,6 +17,7 @@ public class RegistrationPage {
 
     Components components = new Components();
     RegistrationResultModal registrationResultModal = new RegistrationResultModal();
+    BaseTest baseTest = new BaseTest();
 
     private SelenideElement practiceFormSelector = $(".practice-form-wrapper"),
                             firstNameInput = $("#firstName"),
@@ -38,7 +41,7 @@ public class RegistrationPage {
 //    }
 
     public void openPage() {
-        open("automation-practice-form");
+        open(baseUrl + "automation-practice-form");
         practiceFormSelector.shouldHave(text(TITLE_TEXT));
     }
 
