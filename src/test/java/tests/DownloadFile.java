@@ -23,7 +23,7 @@ public class DownloadFile extends BaseTest {
 
 
 
-//    @Disabled
+    @Disabled
     @Test
     void firstDowloadFile() throws Exception {
         open("https://github.com/qa-guru/niffler/blob/master/README.md");
