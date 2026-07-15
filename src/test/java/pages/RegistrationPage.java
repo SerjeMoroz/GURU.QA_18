@@ -41,7 +41,7 @@ public class RegistrationPage {
 //    }
 
     public void openPage() {
-        open(baseUrl + "automation-practice-form");
+        open("https://demoqa.com/automation-practice-form");
         practiceFormSelector.shouldHave(text(TITLE_TEXT));
     }
 

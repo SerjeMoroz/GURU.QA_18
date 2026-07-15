@@ -42,7 +42,7 @@ public class BaseTest {
         options.addArguments("--window-size=1920,1080");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com/";
+//        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
 
         Configuration.browserCapabilities = options;
@@ -57,7 +57,7 @@ public class BaseTest {
     @BeforeEach
     void setUp() {
         open();
-        getWebDriver().manage().window().maximize();
+//        getWebDriver().manage().window().maximize();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
