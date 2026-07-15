@@ -38,7 +38,7 @@ public class BaseTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
-//        options.addArguments("--headless=new");
+        options.addArguments("--headless=new");
         options.addArguments("--window-size=1920,1080");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
