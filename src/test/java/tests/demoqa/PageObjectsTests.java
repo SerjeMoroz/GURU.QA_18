@@ -27,12 +27,12 @@ public class PageObjectsTests extends BaseTest {
     @Tag("Smoke")
     @CsvFileSource (resources = "/testdata/fileNameGender.csv")
     @ParameterizedTest(name = "гендер: {0} и хобби:{1}")
-    void successfulRegistration(String testData, String hobby) {
+    void successfulRegistration(String gender, String hobby) {
         step("Заполняется форма", () -> {
             registrationPage.openPage();
             registrationPage.setUserInformation(firstName(), lastName(), userEmail(), phoneNumber());
             registrationPage.setBirthDate(dayOfBirth(), monthOfBirth(), yearOfBirth());
-            registrationPage.setGenderAndHobbie(testData, hobby);
+            registrationPage.setGenderAndHobbie(gender, hobby);
             registrationPage.setSubjectAndUploadPicture(userSubject());
             registrationPage.setAddress(userAddress(), userState(), userCity());
         });
@@ -40,7 +40,7 @@ public class PageObjectsTests extends BaseTest {
             registrationPage.registrationResultModalAppears();
             registrationPage.verifyModalWindowResult("Student name", firstName() + lastName());
             registrationPage.verifyModalWindowResult("Student Email", userEmail());
-            registrationPage.verifyModalWindowResult("Gender", testData);
+            registrationPage.verifyModalWindowResult("Gender", gender);
             registrationPage.verifyModalWindowResult("Mobile",  phoneNumber());
             registrationPage.verifyModalWindowResult("Date of birth", dayOfBirth() + monthOfBirth() + yearOfBirth());
             registrationPage.verifyModalWindowResult("Subjects", userSubject());
