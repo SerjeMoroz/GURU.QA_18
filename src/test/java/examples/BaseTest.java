@@ -57,7 +57,7 @@ public class BaseTest {
     @BeforeEach
     void setUp() {
         open();
-        getWebDriver().manage().window().maximize();
+//        getWebDriver().manage().window().maximize();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
