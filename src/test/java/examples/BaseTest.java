@@ -29,7 +29,6 @@ public class BaseTest {
 
     @BeforeAll
     static void setupClass() {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-search-engine-choice-screen");
@@ -44,6 +43,7 @@ public class BaseTest {
         Configuration.headless = false;
         Configuration.browserSize = "1920x1080";
 
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
