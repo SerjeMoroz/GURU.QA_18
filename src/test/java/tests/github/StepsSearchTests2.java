@@ -37,8 +37,7 @@ public class StepsSearchTests2  {
             $("#query-builder-test").setValue("Selenide").pressEnter();
         });
         step("Кликаем на первый в поиске результат", () -> {
-            $$(By.xpath("//div[@class='Search-module__columnLeftWrapper__rycTi']" +
-                    "//div[@class='search-title Header-module__title__QUX7e']")).first().click();
+            $$(By.xpath("//div[@class='search-title Header-module__title__EpJLU']")).first().click();
             $("#wiki-tab").click();
             $(By.xpath("//a[normalize-space()='Soft assertions']")).click();
         });

@@ -57,7 +57,7 @@ public class BaseTest {
     @BeforeEach
     void setUp() {
         open();
-//        getWebDriver().manage().window().maximize();
+        getWebDriver().manage().window().maximize();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
@@ -68,7 +68,7 @@ public class BaseTest {
         Attach.browserConsoleLogs();
         Attach.addVideo();
         Selenide.clearBrowserCookies();
-//        Selenide.clearBrowserLocalStorage();
+        Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();
     }
 }

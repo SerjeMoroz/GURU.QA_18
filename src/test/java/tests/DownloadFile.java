@@ -44,7 +44,7 @@ public class DownloadFile extends BaseTest {
     void secondDowloadFile() throws Exception {
         open("https://tus.io/demo.html");
         $("input[type='file']").uploadFromClasspath("img/BlueBird.jpg");
-        $(byXpath("//p[@class='_heading_gq6c0_21']")).shouldHave(text("The upload is complete!"));
+        $("._heading_gq6c0_21").shouldHave(text("The upload is complete!"));
     }
 
 }
