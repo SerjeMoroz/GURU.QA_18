@@ -46,8 +46,8 @@ public class BaseTest {
         Configuration.fastSetValue = false;
 
         Configuration.browserCapabilities = options;
-//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        Configuration.remote = "https://selenoid.qa.guru/wd/hub";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+//        Configuration.remote = "https://selenoid.qa.guru/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid.options", Map.<String, Object>of(
                 "enableVNC", true,
