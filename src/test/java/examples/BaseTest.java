@@ -29,36 +29,33 @@ public class BaseTest {
 
     @BeforeAll
     static void setupClass() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
         options.addArguments("--disable-cache");
         options.addArguments("--ignore-certificate-errors");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--headless=new");
-        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
 //        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         Configuration.browser = "chrome";
 //        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
+        Configuration.headless = false;
+        Configuration.browserSize = "1920x1080";
 
-        Configuration.browserCapabilities = options;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        capabilities.setCapability("selenoid.options", Map.<String, Object>of(
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
+        Configuration.browserCapabilities = capabilities;
+        Configuration.remote = "https://user1:1234@selenoid.qa.guru/wd/hub";
     }
 
     @BeforeEach
     void setUp() {
         open();
-//        getWebDriver().manage().window().maximize();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
@@ -68,8 +65,8 @@ public class BaseTest {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();
+//        Selenide.clearBrowserCookies();
+//        Selenide.clearBrowserLocalStorage();
     }
 }

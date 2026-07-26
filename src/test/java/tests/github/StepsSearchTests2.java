@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 
-public class StepsSearchTests2  {
+public class StepsSearchTests2 extends BaseTest {
 
 
     @Test
