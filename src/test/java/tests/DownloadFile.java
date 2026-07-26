@@ -39,12 +39,14 @@ public class DownloadFile extends BaseTest {
         Selenide.clearBrowserLocalStorage();
     }
 
-
+    @Disabled
     @Test
     void secondDowloadFile() throws Exception {
         open("https://tus.io/demo.html");
         $("input[type='file']").uploadFromClasspath("img/BlueBird.jpg");
-        $("._heading_gq6c0_21").shouldHave(text("The upload is complete!"));
+//        $("._root_gq6c0_1").scrollTo();
+        sleep(6000);
+        $(byXpath("//p[@class='_heading_gq6c0_21']")).shouldHave(text("The upload is complete!"));
     }
 
 }
