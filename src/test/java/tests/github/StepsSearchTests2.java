@@ -3,6 +3,7 @@ package tests.github;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.codeborne.selenide.selector.ByText;
 import examples.BaseTest;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Disabled;
@@ -22,9 +23,8 @@ public class StepsSearchTests2  {
         open("https://github.com");
         $(By.xpath("//button[normalize-space()='Solutions']")).hover();
         $(By.linkText("Enterprises")).click();
-        $("#hero-section-brand-heading").shouldBe(visible).
-                shouldHave(text("The AI-powered developer platform for the agent-ready enterprise"));
-        Selenide.closeWebDriver();
+        $(By.xpath("//div[@data-testid='contentful-bg-content']")).
+                shouldHave(text("Bring your DevOps together"));
     }
 
     @Test
