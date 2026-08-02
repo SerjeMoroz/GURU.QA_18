@@ -30,18 +30,15 @@ public class BaseTest {
     @BeforeAll
     static void setupClass() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
-        options.addArguments("--disable-search-engine-choice-screen");
-        options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
-        options.addArguments("--disable-cache");
-        options.addArguments("--ignore-certificate-errors");
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
-//        options.addArguments("--unsafely-treat-insecure-origin-as-secure=хттпсайт");
-        Configuration.browser = "chrome";
-//        Configuration.baseUrl = "https://demoqa.com/";
-        Configuration.fastSetValue = false;
-        Configuration.headless = false;
-        Configuration.browserSize = "1920x1080";
+        options.addArguments(
+                "--disable-notifications",
+        "--disable-search-engine-choice-screen",
+        "--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints",
+        "--disable-cache",
+        "--ignore-certificate-errors",
+        "--no-sandbox", "--disable-dev-shm-usage"
+//      "--unsafely-treat-insecure-origin-as-secure=хттпсайт");
+        );
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
@@ -49,14 +46,23 @@ public class BaseTest {
                 "enableVNC", true,
                 "enableVideo", true
         ));
+
         Configuration.browserCapabilities = capabilities;
         Configuration.remote = "https://user1:1234@selenoid.qa.guru/wd/hub";
+        Configuration.browser = "chrome";
+//        Configuration.baseUrl = "https://demoqa.com/";
+        Configuration.fastSetValue = false;
+        Configuration.headless = false;
+        Configuration.browserSize = "1920x1080";
     }
 
     @BeforeEach
     void setUp() {
         open();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+//        void addListener() {
+//            SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+//        }
     }
 
     @AfterEach
