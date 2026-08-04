@@ -50,4 +50,10 @@ test {
         events "STARTED", "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
     }
 
+    task remote_test(type: Test) {
+        useJUnitPlatform {
+            includeTags("one_property")
+        }
+    }
+
 }

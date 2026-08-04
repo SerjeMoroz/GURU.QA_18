@@ -46,8 +46,8 @@ public class BaseTest {
                 "enableVNC", true,
                 "enableVideo", true
         ));
-
         Configuration.browserCapabilities = capabilities;
+
         Configuration.remote = "https://user1:1234@selenoid.qa.guru/wd/hub";
         Configuration.browser = "chrome";
 //        Configuration.baseUrl = "https://demoqa.com/";
@@ -60,9 +60,6 @@ public class BaseTest {
     void setUp() {
         open();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-//        void addListener() {
-//            SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-//        }
     }
 
     @AfterEach
