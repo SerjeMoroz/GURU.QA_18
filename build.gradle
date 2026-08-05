@@ -31,7 +31,7 @@ dependencies {
      'net.datafaker:datafaker:2.4.0',
      'com.codeborne:pdf-test:1.5.0',
      'com.codeborne:xls-test:1.4.3',
-            'io.qameta.allure:allure-selenide:2.30.0'
+            'io.qameta.allure:allure-selenide:2.35.3'
     )
     testRuntimeOnly (
         'org.junit.platform:junit-platform-launcher'
@@ -52,7 +52,7 @@ test {
 
     task remote_test(type: Test) {
         useJUnitPlatform {
-            includeTags("one_property")
+            includeTags("property")
         }
     }
 

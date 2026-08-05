@@ -33,8 +33,8 @@ public class StepsSearchTests2 extends BaseTest {
             open("https://github.com");
         });
         step("Вводим текст поиска и нажимаем Enter", () -> {
-            $("span[class='flex-1']").click();
-            $("#query-builder-test").setValue("Selenide").pressEnter();
+            $(".HeaderSearch-module__placeholder__xWpYW").click();
+            $("input[placeholder='Search or jump to...']").setValue("Selenide").pressEnter();
         });
         step("Кликаем на первый в поиске результат", () -> {
             $$(By.xpath("//div[@class='search-title Header-module__title__EpJLU']")).first().click();
