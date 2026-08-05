@@ -39,21 +39,26 @@ dependencies {
 }
 
 
-tasks.withType(JavaCompile).configureEach {
-    options.encoding='UTF-8'
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
-    testLogging {
-        events "STARTED", "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
-    }
 
-    task remote_test(type: Test) {
-        useJUnitPlatform {
-            includeTags("property")
+    testLogging {
+        lifecycle {
+            events "STARTED", "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+            exceptionFormat "short"
         }
     }
-
 }
+    tasks.register("remote_test", Test) {
+        testClassesDirs = testing.suites.test.sources.output.classesDirs
+        classpath = testing.suites.test.sources.runtimeClasspath
+
+        useJUnitPlatform {
+            includeTags("remote")
+        }
+    }
