@@ -61,7 +61,6 @@ public class BaseTest {
         Attach.browserConsoleLogs();
         Attach.addVideo();
         Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();
     }
 }
