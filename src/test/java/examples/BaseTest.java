@@ -40,8 +40,8 @@ public class BaseTest {
 //        Configuration.remote = "https://user1:1234@"+ System.getProperty("selenoidUrl","selenoid.qa.guru/wd/hub");
         Configuration.remote = "https://user1:1234@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browser.version", "latest");
-        Configuration.browserSize = System.getProperty("browser.size", "1920x1080");
+        Configuration.browserVersion = System.getProperty("version", "latest");
+        Configuration.browserSize = System.getProperty("size", "1920x1080");
 //        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
         Configuration.headless = false;
