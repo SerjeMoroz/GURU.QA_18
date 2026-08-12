@@ -38,7 +38,11 @@ public class BaseTest {
         Configuration.browserCapabilities = capabilities;
 
         Configuration.remote = "https://user1:1234@selenoid.qa.guru/wd/hub";
-        Configuration.browser = "chrome";
+        Configuration.browser = System.getProperty("browser", "firefox");
+        Configuration.browserVersion = System.getProperty("browserVersion", "150");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "149");
+
 //        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
         Configuration.headless = false;
