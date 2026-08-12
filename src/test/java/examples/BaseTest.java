@@ -37,14 +37,15 @@ public class BaseTest {
         ));
         Configuration.browserCapabilities = capabilities;
 
+//        Configuration.remote = "https://user1:1234@"+ System.getProperty("selenoidUrl","selenoid.qa.guru/wd/hub");
         Configuration.remote = "https://user1:1234@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "149");
-
+        Configuration.browserVersion = System.getProperty("browserVersion", "latest");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
 //        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
         Configuration.headless = false;
-        Configuration.browserSize = "1920x1080";
+
     }
 
     @BeforeEach
