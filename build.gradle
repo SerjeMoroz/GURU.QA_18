@@ -54,11 +54,20 @@ tasks.withType(Test) {
         }
     }
 }
-    tasks.register("remote_test", Test) {
-        testClassesDirs = testing.suites.test.sources.output.classesDirs
-        classpath = testing.suites.test.sources.runtimeClasspath
+tasks.register("remote_test", Test) {
+    testClassesDirs = testing.suites.test.sources.output.classesDirs
+    classpath = testing.suites.test.sources.runtimeClasspath
 
-        useJUnitPlatform {
-            includeTags("remote")
-        }
+    useJUnitPlatform {
+        includeTags("remote")
     }
+}
+
+tasks.register("ParameterizedTest", Test) {
+    testClassesDirs = testing.suites.test.sources.output.classesDirs
+    classpath = testing.suites.test.sources.runtimeClasspath
+
+    useJUnitPlatform {
+        includeTags("Smoke")
+    }
+}
