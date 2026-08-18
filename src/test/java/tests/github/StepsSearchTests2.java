@@ -21,7 +21,6 @@ public class StepsSearchTests2 extends BaseTest {
                 shouldHave(text("Bring your DevOps together"));
     }
 
-    @Disabled
     @Test
     void searchGitHubTestWithLambdaStep() {
         step("Открываем главную страницу GitHub", () -> {
