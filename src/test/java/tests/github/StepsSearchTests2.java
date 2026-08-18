@@ -1,18 +1,11 @@
 package tests.github;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import com.codeborne.selenide.selector.ByText;
 import examples.BaseTest;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 
 public class StepsSearchTests2 extends BaseTest {
@@ -33,7 +26,7 @@ public class StepsSearchTests2 extends BaseTest {
             open("https://github.com");
         });
         step("Вводим текст поиска и нажимаем Enter", () -> {
-            $(".HeaderSearch-module__placeholder__xWpYW").click();
+            $(".HeaderSearch-module__content__kMpxU").click();
             $("input[placeholder='Search or jump to...']").setValue("Selenide").pressEnter();
         });
         step("Кликаем на первый в поиске результат", () -> {
