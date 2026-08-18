@@ -4,7 +4,7 @@
     "project": "my-project",
     "environment": "qa.guru",
     "comment": "Ваши результаты тестов",
-    "reportLink": "https://jenkins.qa.guru",
+    "reportLink": "https://jenkins.qa.guru/job/018-jenkins-jobs-HW-16_notification/",
     "language": "ru",
     "allureFolder": "allure-report/",
     "allureResultsFolder": "allure-results/",
