@@ -1,0 +1,15 @@
+﻿Telegram username: @alberich_notification_bot
+Telegram token: 8941269503:AAEO3Bm46n1wN6m0IPTHy7rizIcB-rCsXpI
+Chat id: -1004446724523
+
+a. Fetch bot updates and look for the chat id:
+curl https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getUpdates | jq.message.chat.id
+curl https://api.telegram.org/bot8941269503:AAEO3Bm46n1wN6m0IPTHy7rizIcB-rCsXpI/getUpdates | jq.message.chat.id
+
+
+Send a messages using the HTTP API:
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "1234567890", "test": "This is a test from curl", "disable_notification": true}' https://api.telegram.org/bot$TELEHRAM_BOT_TOKEN/sendMessage
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-1004446724523", "text": "This is a chat message", "disable_notification": true}' https://api.telegram.org/bot8941269503:AAEO3Bm46n1wN6m0IPTHy7rizIcB-rCsXpI/sendMessage
+
+Run jar with notifications
+java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-5.0.8.jar
