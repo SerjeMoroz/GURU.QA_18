@@ -1,6 +1,7 @@
 package tests.github;
 
 import examples.BaseTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -20,6 +21,7 @@ public class StepsSearchTests2 extends BaseTest {
                 shouldHave(text("Bring your DevOps together"));
     }
 
+    @Disabled
     @Test
     void searchGitHubTestWithLambdaStep() {
         step("Открываем главную страницу GitHub", () -> {

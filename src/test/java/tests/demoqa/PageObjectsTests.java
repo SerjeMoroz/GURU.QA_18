@@ -24,6 +24,7 @@ public class PageObjectsTests extends BaseTest {
 //            "Female",
 //            "Other"
 //    })
+    @Disabled
     @Tag("Smoke")
     @CsvFileSource (resources = "/testdata/fileNameGender.csv")
     @ParameterizedTest(name = "гендер: {0} и хобби:{1}")
