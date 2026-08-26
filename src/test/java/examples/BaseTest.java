@@ -39,6 +39,13 @@ public class BaseTest {
         ));
         Configuration.browserCapabilities = capabilities;
 
+//        options.setCapability("selenoid:options", Map.of(
+//                "enableVNC", true,
+//                "enableVideo", true
+//        ));
+
+//        Configuration.browserCapabilities = options;
+
         Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "151");
