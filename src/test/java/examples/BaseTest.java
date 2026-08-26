@@ -28,7 +28,7 @@ public class BaseTest {
                 "--disable-cache",
                 "--ignore-certificate-errors",
                 "--no-sandbox", "--disable-dev-shm-usage"
- "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
+// "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
         );
 
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
