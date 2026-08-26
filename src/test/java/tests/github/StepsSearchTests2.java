@@ -17,8 +17,8 @@ public class StepsSearchTests2 extends BaseTest {
         open("https://github.com");
         $(By.xpath("//button[normalize-space()='Solutions']")).hover();
         $(By.linkText("Enterprises")).click();
-        $(By.xpath("//div[@data-testid='contentful-bg-content']")).
-                shouldHave(text("Bring your DevOps together"));
+        $(By.xpath("//h2[normalize-space()='Enterprise-grade by design']")).
+                shouldHave(text("Enterprise-grade by design"));
     }
 
     @Test
