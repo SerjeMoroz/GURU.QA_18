@@ -82,25 +82,25 @@ public class BaseTest {
 //            Configuration.browserCapabilities = selenoidCapabilities();
 //        }
 //    }
-
-    private static MutableCapabilities selenoidCapabilities() {
-        Map<String, Object> selenoidOptions = Map.of(
-                "enableVNC", true,
-                "enableVideo", true
-        );
-        if ("chrome".equalsIgnoreCase(Configuration.browser)) {
-            ChromeOptions options = new ChromeOptions();
-            options.setAcceptInsecureCerts(true);
-            options.setPageLoadStrategy(PageLoadStrategy.EAGER);
-            options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
-            options.setCapability("selenoid:options", selenoidOptions);
-            return options;
-        }
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("pageLoadStrategy", "eager");
-        capabilities.setCapability("selenoid:options", selenoidOptions);
-        return capabilities;
-    }
+//
+//    private static MutableCapabilities selenoidCapabilities() {
+//        Map<String, Object> selenoidOptions = Map.of(
+//                "enableVNC", true,
+//                "enableVideo", true
+//        );
+//        if ("chrome".equalsIgnoreCase(Configuration.browser)) {
+//            ChromeOptions options = new ChromeOptions();
+//            options.setAcceptInsecureCerts(true);
+//            options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+//            options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
+//            options.setCapability("selenoid:options", selenoidOptions);
+//            return options;
+//        }
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("pageLoadStrategy", "eager");
+//        capabilities.setCapability("selenoid:options", selenoidOptions);
+//        return capabilities;
+//    }
 
     @BeforeEach
     void setUp() {
