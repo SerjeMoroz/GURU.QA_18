@@ -38,7 +38,7 @@ public class BaseTest {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-//        options.setAcceptInsecureCerts(true);
+        options.setAcceptInsecureCerts(true);
 //
 //    options.setCapability("selenoid:options", Map.of(
 //    "enableVNC", true,
