@@ -23,34 +23,36 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments(
                 "--disable-notifications",
-        "--disable-search-engine-choice-screen",
-        "--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints",
-        "--disable-cache",
-        "--ignore-certificate-errors",
-        "--no-sandbox", "--disable-dev-shm-usage"
-//      "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
+                "--disable-search-engine-choice-screen",
+                "--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints",
+                "--disable-cache",
+                "--ignore-certificate-errors",
+                "--no-sandbox", "--disable-dev-shm-usage"
+// "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
         );
 
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", true
-//        ));
-//        Configuration.browserCapabilities = capabilities;
-
-        options.setCapability("selenoid:options", Map.of(
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
+        Configuration.browserCapabilities = capabilities;
+// options.setAcceptInsecureCerts(true);
+// options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+//
+// options.setCapability("selenoid:options", Map.of(
+// "enableVNC", true,
+// "enableVideo", true
+// ));
 
-        Configuration.browserCapabilities = options;
+// Configuration.browserCapabilities = options;
 
         Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "151");
         Configuration.browserSize = System.getProperty("size", "1920x1080");
-//        Configuration.baseUrl = "https://demoqa.com/";
+// Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
         Configuration.headless = false;
 
