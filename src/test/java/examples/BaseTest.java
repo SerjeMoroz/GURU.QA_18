@@ -29,13 +29,21 @@ public class BaseTest {
 //      "--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         );
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", true
+//        ));
+//        Configuration.browserCapabilities = capabilities;
+
+
+        options.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
-        Configuration.browserCapabilities = capabilities;
+
+        Configuration.browserCapabilities = options;
 
 //        Configuration.remote = "https://user1:1234@"+ System.getProperty("selenoidUrl","selenoid.qa.guru/wd/hub");
         Configuration.remote = "https://user1:1234@selenoid.qa.guru/wd/hub";
@@ -50,8 +58,11 @@ public class BaseTest {
 
     @BeforeEach
     void setUp() {
+
+        SelenideLogger.addListener(
+                "AllureSelenide", new AllureSelenide()
+        );
         open();
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
