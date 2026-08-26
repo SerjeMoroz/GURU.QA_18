@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 import static com.codeborne.selenide.Selenide.open;
-
+import com.codeborne.selenide.WebDriverRunner;
 
 public class BaseTest {
 
@@ -38,9 +38,10 @@ public class BaseTest {
         Configuration.browserCapabilities = capabilities;
 
 //        Configuration.remote = "https://user1:1234@"+ System.getProperty("selenoidUrl","selenoid.qa.guru/wd/hub");
+        Configuration.headless = true;
         Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("version", "latest");
+        Configuration.browserVersion = System.getProperty("version", "151.0");
         Configuration.browserSize = System.getProperty("size", "1920x1080");
 //        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
@@ -50,10 +51,10 @@ public class BaseTest {
 
     @BeforeEach
     void setUp() {
+        open();
         SelenideLogger.addListener(
                 "AllureSelenide", new AllureSelenide()
         );
-        open();
     }
 
     @AfterEach
