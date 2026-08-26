@@ -52,8 +52,6 @@ public class BaseTest {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "151");
         Configuration.browserSize = System.getProperty("size", "1920x1080");
-        Configuration.timeout = 15000;
-        Configuration.pageLoadTimeout = 60000;
 //        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
         Configuration.headless = false;
