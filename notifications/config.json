@@ -14,10 +14,10 @@
     "token": "8941269503:AAEO3Bm46n1wN6m0IPTHy7rizIcB-rCsXpI",
     "chat": "-1004446724523",
     "topic": ""
+  },
+  "proxy": {
+    "type": "socks5",
+    "host": "proxy.qaguru.school",
+    "port": 7777
   }
-//  "proxy": {
-//    "type": "socks5",
-//    "host": "proxy.qaguru.school",
-//    "port": 7777
-//  }
 }
