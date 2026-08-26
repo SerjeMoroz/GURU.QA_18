@@ -21,15 +21,15 @@ public class BaseTest {
     @BeforeAll
     static void setupClass() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments(
-                "--disable-notifications",
-                "--disable-search-engine-choice-screen",
-                "--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints",
-                "--disable-cache",
-                "--ignore-certificate-errors",
-                "--no-sandbox", "--disable-dev-shm-usage"
+//        options.addArguments(
+//                "--disable-notifications",
+//                "--disable-search-engine-choice-screen",
+//                "--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints",
+//                "--disable-cache",
+//                "--ignore-certificate-errors",
+//                "--no-sandbox", "--disable-dev-shm-usage"
 // "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
-        );
+//        );
 
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
 //        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
