@@ -24,13 +24,13 @@ public class BaseTest {
         options.addArguments(
                 "--disable-notifications",
                 "--disable-search-engine-choice-screen",
-//                "--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints",
                 "--disable-cache",
-                "--ignore-certificate-errors",
+//                "--ignore-certificate-errors",
                 "--no-sandbox", "--disable-dev-shm-usage"
 // "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
         );
 
+        options.setAcceptInsecureCerts(true);
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -39,7 +39,7 @@ public class BaseTest {
         ));
         Configuration.browserCapabilities = capabilities;
 
-//    options.setAcceptInsecureCerts(true);
+
 //    options.setCapability("selenoid:options", Map.of(
 //    "enableVNC", true,
 //    "enableVideo", true
