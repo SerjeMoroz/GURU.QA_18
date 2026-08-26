@@ -31,20 +31,20 @@ public class BaseTest {
 //      "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
         );
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
-
-//        options.setCapability("selenoid:options", Map.of(
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
 //                "enableVNC", true,
 //                "enableVideo", true
 //        ));
+//        Configuration.browserCapabilities = capabilities;
 
-//        Configuration.browserCapabilities = options;
+        options.setCapability("selenoid:options", Map.of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+
+        Configuration.browserCapabilities = options;
 
         Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
