@@ -20,66 +20,68 @@ public class BaseTest {
 
     @BeforeAll
     static void setupClass() {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments(
-//                "--disable-notifications",
-//        "--disable-search-engine-choice-screen",
-//        "--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints",
-//        "--disable-cache",
-//        "--ignore-certificate-errors",
-//        "--no-sandbox", "--disable-dev-shm-usage"
-////      "--unsafely-treat-insecure-origin-as-secure=хттпсайт");
-//        );
-//
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", true
-//        ));
-//        Configuration.browserCapabilities = capabilities;
-//
-//
-//        Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
-//        Configuration.browser = System.getProperty("browser", "chrome");
-//        Configuration.browserVersion = System.getProperty("version", "151");
-//        Configuration.browserSize = System.getProperty("size", "1920x1080");
-////        Configuration.baseUrl = "https://demoqa.com/";
-//        Configuration.fastSetValue = false;
-//        Configuration.headless = false;
-//
-//    }
-        Configuration.remote = System.getProperty("remote","https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub");
-        Configuration.browser = System.getProperty("browser", "chrome").toLowerCase();
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.browserVersion = System.getProperty("browserVersion", "151");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments(
+                "--disable-notifications",
+        "--disable-search-engine-choice-screen",
+        "--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints",
+        "--disable-cache",
+        "--ignore-certificate-errors",
+        "--no-sandbox", "--disable-dev-shm-usage"
+//      "--unsafely-treat-insecure-origin-as-secure=хттпсайт");
+        );
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+        Configuration.browserCapabilities = capabilities;
+
+
+        Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("version", "151");
+        Configuration.browserSize = System.getProperty("size", "1920x1080");
         Configuration.timeout = 15000;
         Configuration.pageLoadTimeout = 60000;
-        Configuration.pageLoadStrategy = "eager";
+//        Configuration.baseUrl = "https://demoqa.com/";
+        Configuration.fastSetValue = false;
+        Configuration.headless = false;
 
-        String browserVersion = System.getProperty("browserVersion");
-        if (browserVersion != null && !browserVersion.isBlank()) {
-            Configuration.browserVersion = browserVersion;
-        }
-
-        String remoteUrl = System.getProperty("remoteUrl");
-        if (remoteUrl == null || remoteUrl.isBlank()) {
-            String login = System.getProperty("remoteBrowserUrlLogin");
-            String password = System.getProperty("remoteBrowserUrlPassword");
-            if (login != null && password != null && !login.isBlank() && !password.isBlank()) {
-                remoteUrl = "https://" + login + ":" + password + "@" +
-                        System.getProperty("remoteBrowserUrl", "selenoid.autotests.cloud/wd/hub");
-            }
-        }
-
-        boolean remote = remoteUrl != null && !remoteUrl.isBlank();
-        Configuration.headless = !remote && Boolean.parseBoolean(System.getProperty("headless", "false"));
-
-        if (remote) {
-            Configuration.remote = remoteUrl;
-            Configuration.browserCapabilities = selenoidCapabilities();
-        }
     }
+//        Configuration.remote = System.getProperty("remote","https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub");
+//        Configuration.browser = System.getProperty("browser", "chrome").toLowerCase();
+//        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+//        Configuration.browserVersion = System.getProperty("browserVersion", "151");
+//        Configuration.timeout = 15000;
+//        Configuration.pageLoadTimeout = 60000;
+//        Configuration.pageLoadStrategy = "eager";
+//
+//        String browserVersion = System.getProperty("browserVersion");
+//        if (browserVersion != null && !browserVersion.isBlank()) {
+//            Configuration.browserVersion = browserVersion;
+//        }
+//
+//        String remoteUrl = System.getProperty("remoteUrl");
+//        if (remoteUrl == null || remoteUrl.isBlank()) {
+//            String login = System.getProperty("remoteBrowserUrlLogin");
+//            String password = System.getProperty("remoteBrowserUrlPassword");
+//            if (login != null && password != null && !login.isBlank() && !password.isBlank()) {
+//                remoteUrl = "https://" + login + ":" + password + "@" +
+//                        System.getProperty("remoteBrowserUrl", "selenoid.autotests.cloud/wd/hub");
+//            }
+//        }
+//
+//        boolean remote = remoteUrl != null && !remoteUrl.isBlank();
+//        Configuration.headless = !remote && Boolean.parseBoolean(System.getProperty("headless", "false"));
+//
+//        if (remote) {
+//            Configuration.remote = remoteUrl;
+//            Configuration.browserCapabilities = selenoidCapabilities();
+//        }
+//    }
 
     private static MutableCapabilities selenoidCapabilities() {
         Map<String, Object> selenoidOptions = Map.of(
