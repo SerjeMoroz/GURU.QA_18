@@ -38,7 +38,7 @@ public class BaseTest {
         Configuration.browserCapabilities = capabilities;
 
 //        Configuration.remote = "https://user1:1234@"+ System.getProperty("selenoidUrl","selenoid.qa.guru/wd/hub");
-        Configuration.remote = "https://user1:1234@selenoid.qa.guru/wd/hub";
+        Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "latest");
         Configuration.browserSize = System.getProperty("size", "1920x1080");
