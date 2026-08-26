@@ -29,20 +29,37 @@ public class BaseTest {
 //      "--unsafely-treat-insecure-origin-as-secure=хттпсайт");
         );
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", true
+//        ));
+//        Configuration.browserCapabilities = capabilities;
+
+        options.setCapability(
+                "selenoid:options",
+                Map.of(
+                        "enableVNC", true,
+                        "enableVideo", true
+                )
+        );
+
+        Configuration.browserCapabilities = options;
 
 //        Configuration.remote = "https://user1:1234@"+ System.getProperty("selenoidUrl","selenoid.qa.guru/wd/hub");
-        Configuration.headless = true;
-        Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("version", "151.0");
-        Configuration.browserSize = System.getProperty("size", "1920x1080");
+        Configuration.remote =
+                "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
+        Configuration.browser =
+                System.getProperty("browser", "chrome");
+        Configuration.browserVersion =
+                System.getProperty("version", "151.0");
+        Configuration.browserSize =
+                System.getProperty("size", "1920x1080");
+        Configuration.headless =
+                Boolean.parseBoolean(
+                        System.getProperty("headless", "true")
+                );
 //        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
         Configuration.headless = false;
@@ -51,10 +68,10 @@ public class BaseTest {
 
     @BeforeEach
     void setUp() {
-        open();
         SelenideLogger.addListener(
                 "AllureSelenide", new AllureSelenide()
         );
+        open();
     }
 
     @AfterEach
