@@ -25,12 +25,12 @@ public class BaseTest {
                 "--disable-notifications",
                 "--disable-search-engine-choice-screen",
                 "--disable-cache",
-//                "--ignore-certificate-errors",
+                "--ignore-certificate-errors",
                 "--no-sandbox", "--disable-dev-shm-usage"
 // "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
         );
 
-        options.setAcceptInsecureCerts(true);
+//        options.setAcceptInsecureCerts(true);
         options.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,
                 "enableVideo", true
@@ -52,13 +52,6 @@ public class BaseTest {
 // Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
         Configuration.headless = false;
-
-        //    options.setCapability("selenoid:options", Map.of(
-//    "enableVNC", true,
-//    "enableVideo", true
-//    ));
-//
-//    Configuration.browserCapabilities = options;
 
     }
 
