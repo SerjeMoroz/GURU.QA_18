@@ -12,7 +12,7 @@ import static examples.Constants.SUBMITTING_FORM;
 public class RegistrationResultModal {
 
 
-    private SelenideElement modalButton = $("#closeLargeModal");
+    private SelenideElement closeLargeModal = $("#closeLargeModal");
 
     public void verifyModalAppears () {
         $(".modal-content").shouldBe(appear);
@@ -25,6 +25,6 @@ public class RegistrationResultModal {
     }
 
     public void closeModalWindow() {
-        modalButton.click();
+        closeLargeModal.click();
     }
 }
