@@ -3,7 +3,7 @@
     "logo": "",
     "project": "my-project",
     "environment": "qa.guru",
-    "comment": "Ваши результаты тестов",
+    "comment": "Ваши результаты тестов, @a1berich",
     "reportLink": "https://jenkins.qa.guru/job/018-jenkins-jobs-HW-16_notification/",
     "language": "ru",
     "allureFolder": "allure-report/",

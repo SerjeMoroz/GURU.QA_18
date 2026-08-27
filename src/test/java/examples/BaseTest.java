@@ -31,21 +31,19 @@ public class BaseTest {
         );
 
         options.setAcceptInsecureCerts(true);
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+        options.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
-        Configuration.browserCapabilities = capabilities;
 
-
-//    options.setCapability("selenoid:options", Map.of(
-//    "enableVNC", true,
-//    "enableVideo", true
-//    ));
-//
-//    Configuration.browserCapabilities = options;
+        Configuration.browserCapabilities = options;
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", true
+//        ));
+//        Configuration.browserCapabilities = capabilities;
 
         Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
@@ -54,6 +52,13 @@ public class BaseTest {
 // Configuration.baseUrl = "https://demoqa.com/";
         Configuration.fastSetValue = false;
         Configuration.headless = false;
+
+        //    options.setCapability("selenoid:options", Map.of(
+//    "enableVNC", true,
+//    "enableVideo", true
+//    ));
+//
+//    Configuration.browserCapabilities = options;
 
     }
 
