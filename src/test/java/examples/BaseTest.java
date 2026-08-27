@@ -25,25 +25,17 @@ public class BaseTest {
                 "--disable-notifications",
                 "--disable-search-engine-choice-screen",
                 "--disable-cache",
-                "--ignore-certificate-errors",
                 "--no-sandbox", "--disable-dev-shm-usage"
+//                "--ignore-certificate-errors"
 // "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
         );
 
-//        options.setAcceptInsecureCerts(true);
+        options.setAcceptInsecureCerts(true);
         options.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = options;
-
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", true
-//        ));
-//        Configuration.browserCapabilities = capabilities;
 
         Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
         Configuration.browser = System.getProperty("browser", "chrome");
