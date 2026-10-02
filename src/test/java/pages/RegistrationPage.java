@@ -34,6 +34,8 @@ public class RegistrationPage {
                             submitButton = $("#submit"),
                             uploadPicture = $("#uploadPicture");
 
+    String baseUrl = "https://demoqa.com/automation-practice-form";
+
 
 //    public void removeFooters() {
 //        executeJavaScript("$('#fixedban').remove()");
@@ -41,7 +43,7 @@ public class RegistrationPage {
 //    }
 
     public void openPage() {
-        open("https://demoqa.com/automation-practice-form");
+        open(baseUrl);
         practiceFormSelector.shouldHave(text(TITLE_TEXT));
     }
 
