@@ -16,32 +16,32 @@ public class BaseTest {
 
     @BeforeAll
     static void setupClass() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments(
-                "--disable-notifications",
-                "--disable-search-engine-choice-screen",
-                "--disable-cache",
-                "--no-sandbox", "--disable-dev-shm-usage"
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments(
+                    "--disable-notifications",
+                    "--disable-search-engine-choice-screen",
+                    "--disable-cache",
+                    "--no-sandbox", "--disable-dev-shm-usage"
 //                "--ignore-certificate-errors"
 // "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
-        );
+            );
 
-        options.setAcceptInsecureCerts(true);
-        options.setCapability("selenoid:options", Map.of(
-                "enableVNC", true,
-                "enableVideo", true,
-                "enableLog", true,
-                "videoFrameRate", 10
-        ));
-        Configuration.browserCapabilities = options;
+            options.setAcceptInsecureCerts(true);
+            options.setCapability("selenoid:options", Map.of(
+                    "enableVNC", true,
+                    "enableVideo", true,
+                    "enableLog", true,
+                    "videoFrameRate", 10
+            ));
+            Configuration.browserCapabilities = options;
 
-        Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("version", "153");
-        Configuration.browserSize = System.getProperty("size", "1920x1080");
+            Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
+            Configuration.browser = System.getProperty("browser", "chrome");
+            Configuration.browserVersion = System.getProperty("version", "153");
+            Configuration.browserSize = System.getProperty("size", "1920x1080");
 // Configuration.baseUrl = "https://demoqa.com/";
-        Configuration.fastSetValue = false;
-        Configuration.headless = false;
+            Configuration.fastSetValue = false;
+            Configuration.headless = false;
 
     }
 
@@ -57,8 +57,7 @@ public class BaseTest {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
-        Selenide.clearBrowserCookies();
         Selenide.closeWebDriver();
+        Attach.addVideo();
     }
 }
