@@ -23,7 +23,6 @@ public class BaseTest {
                     "--disable-cache",
                     "--no-sandbox", "--disable-dev-shm-usage"
 //                "--ignore-certificate-errors"
-// "--unsafely-treat-insecure-origin-as-secure=хттпсайт"
             );
 
             options.setAcceptInsecureCerts(true);
