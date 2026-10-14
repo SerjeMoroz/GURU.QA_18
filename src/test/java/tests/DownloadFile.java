@@ -20,30 +20,30 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DownloadFile extends BaseTest {
 
-    @Disabled
-    @Test
-    void firstDowloadFile() throws Exception {
-        open("https://github.com/qa-guru/niffler/blob/master/README.md");
+//    @Disabled
+//    @Test
+//    void firstDowloadFile() throws Exception {
+//        open("https://github.com/qa-guru/niffler/blob/master/README.md");
+////        File download = $("button[data-testid='download-raw-button']").download();
+//        Configuration.fileDownload = FileDownloadMode.FOLDER;
 //        File download = $("button[data-testid='download-raw-button']").download();
-        Configuration.fileDownload = FileDownloadMode.FOLDER;
-        File download = $("button[data-testid='download-raw-button']").download();
-        try (InputStream is = new FileInputStream(download)) {
-            byte [] bytes = is.readAllBytes();
-            String fileAsString = new String(bytes, StandardCharsets.UTF_8);
-            Assertions.assertTrue(fileAsString.contains("Технологии, использованные в Niffler 2.0"));
-        }
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
-    }
-
-    @Disabled
-    @Test
-    void secondDowloadFile() throws Exception {
-        open("https://tus.io/demo.html");
-        $("input[type='file']").uploadFromClasspath("img/BlueBird.jpg");
-        $("._root_gq6c0_1").scrollTo();
-        sleep(6000);
-        $(byXpath("//p[@class='_heading_gq6c0_21']")).shouldHave(text("The upload is complete!"));
-    }
+//        try (InputStream is = new FileInputStream(download)) {
+//            byte [] bytes = is.readAllBytes();
+//            String fileAsString = new String(bytes, StandardCharsets.UTF_8);
+//            Assertions.assertTrue(fileAsString.contains("Технологии, использованные в Niffler 2.0"));
+//        }
+//        Selenide.clearBrowserCookies();
+//        Selenide.clearBrowserLocalStorage();
+//    }
+//
+//    @Disabled
+//    @Test
+//    void secondDowloadFile() throws Exception {
+//        open("https://tus.io/demo.html");
+//        $("input[type='file']").uploadFromClasspath("img/BlueBird.jpg");
+//        $("._root_gq6c0_1").scrollTo();
+//        sleep(6000);
+//        $(byXpath("//p[@class='_heading_gq6c0_21']")).shouldHave(text("The upload is complete!"));
+//    }
 
 }
