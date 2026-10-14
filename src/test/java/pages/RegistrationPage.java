@@ -17,7 +17,6 @@ public class RegistrationPage {
 
     Components components = new Components();
     RegistrationResultModal registrationResultModal = new RegistrationResultModal();
-    BaseTest baseTest = new BaseTest();
 
     private SelenideElement practiceFormSelector = $(".practice-form-wrapper"),
                             firstNameInput = $("#firstName"),
@@ -32,7 +31,9 @@ public class RegistrationPage {
                             stateModal = $("#state"),
                             city = $("#city"),
                             submitButton = $("#submit"),
-                            uploadPicture = $("#uploadPicture");
+                            uploadPicture = $("#uploadPicture"),
+                            State = $("#react-select-3-option-0"),
+                            stateCity = $("#react-select-4-option-1");
 
 
 //    public void removeFooters() {
@@ -70,9 +71,9 @@ public class RegistrationPage {
     public void setAddress(String address, String state, String userCity) {
         addressInput.setValue(address);
         stateModal.scrollTo().click();
-        $("#react-select-3-option-0").click();
+        State.click();
         city.click();
-        $("#react-select-4-option-1").click();
+        stateCity.click();
         submitButton.click();
     }
 

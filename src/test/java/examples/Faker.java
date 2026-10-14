@@ -45,7 +45,7 @@ public class Faker {
     }
 
     public static String dayOfBirth() {
-        return String.valueOf(faker.number().numberBetween(1, 25));
+        return String.format("%02d", faker.number().numberBetween(1, 26));
     }
 
     public static String monthOfBirth() {

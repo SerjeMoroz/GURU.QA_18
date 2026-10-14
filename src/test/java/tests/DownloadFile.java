@@ -17,11 +17,8 @@ import java.nio.charset.StandardCharsets;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class DownloadFile extends BaseTest {
-
-
 
     @Disabled
     @Test
@@ -44,7 +41,7 @@ public class DownloadFile extends BaseTest {
     void secondDowloadFile() throws Exception {
         open("https://tus.io/demo.html");
         $("input[type='file']").uploadFromClasspath("img/BlueBird.jpg");
-//        $("._root_gq6c0_1").scrollTo();
+        $("._root_gq6c0_1").scrollTo();
         sleep(6000);
         $(byXpath("//p[@class='_heading_gq6c0_21']")).shouldHave(text("The upload is complete!"));
     }

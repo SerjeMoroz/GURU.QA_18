@@ -1,7 +1,6 @@
 package tests.demoqa;
 
 import examples.BaseTest;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,6 +10,7 @@ import pages.components.RegistrationResultModal;
 
 import static examples.Faker.*;
 import static io.qameta.allure.Allure.step;
+import static java.lang.Thread.sleep;
 
 
 public class PageObjectsTests extends BaseTest {
