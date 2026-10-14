@@ -27,12 +27,12 @@ public class StepsSearchTests2 extends BaseTest {
             open("https://github.com");
         });
         step("Вводим текст поиска и нажимаем Enter", () -> {
-            $(".HeaderSearch-module__content__kMpxU").click();
+            $(".content__-QV4lC").click();
             $("input[placeholder='Search or jump to...']").setValue("Selenide").pressEnter();
         });
         step("Кликаем на первый в поиске результат", () -> {
-            $$(By.xpath("//div[@class='search-title Header-module__title__EpJLU']")).first().click();
-            $("#wiki-tab").click();
+            $("[data-testid='results-list'] a[href*='/selenide/selenide']").click();
+            $(By.xpath("//a[@data-tab-item='wiki']")).click();
             $(By.xpath("//a[normalize-space()='Soft assertions']")).click();
         });
         step("Верифицируем результат", () -> {
