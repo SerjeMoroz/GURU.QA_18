@@ -15,7 +15,7 @@ public class StepsSearchTests2 extends BaseTest {
     @Test
     void solutionsTestGithub() {
         open("https://github.com");
-        $(By.xpath("//button[normalize-space()='Solutions']")).hover();
+        $(".content__-QV4lC").hover();
         $(By.linkText("Enterprises")).click();
         $(By.xpath("//h2[normalize-space()='Enterprise-grade by design']")).
                 shouldHave(text("Enterprise-grade by design"));
