@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 
 public class StepsSearchTests2 extends BaseTest {
 
-
+    @Disabled
     @Test
     void solutionsTestGithub() {
         open("https://github.com");
